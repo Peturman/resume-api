@@ -61,7 +61,7 @@ router.post('/', passport.authenticate('bearer', { session: false }), function(r
 	});
 });
 
-router.get('/:id', passport.authenticate('bearer', { session: false, successRedirect: '/', failureRedirect: '/login' }), function(req, res) {
+router.get('/:id', passport.authenticate('bearer'), function(req, res) {
 	
 	Article.findById(req.params.id, function (err, article) {
 		
@@ -74,7 +74,7 @@ router.get('/:id', passport.authenticate('bearer', { session: false, successRedi
 		}
 		
 		if (!err) {
-			return res.json({ 
+			return res.json({
 				status: 'OK', 
 				article: article
 			});
