@@ -10,6 +10,7 @@ var User = require(libs + 'model/user');
 var Client = require(libs + 'model/client');
 var AccessToken = require(libs + 'model/accessToken');
 var RefreshToken = require(libs + 'model/refreshToken');
+var Article = require(libs + 'model/article');
 
 User.remove({}, function(err) {
     var user = new User({ 
@@ -43,6 +44,12 @@ Client.remove({}, function(err) {
 
     });
 });
+
+Article.remove({}, function (err) {
+    if (err) {
+        return log.error(err);
+    }
+})
 
 AccessToken.remove({}, function (err) {
     if (err) {

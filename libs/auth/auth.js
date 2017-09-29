@@ -16,15 +16,15 @@ passport.use(new BasicStrategy(
     function(username, password, done) {
         Client.findOne({ clientId: username }, function(err, client) {
             if (err) { 
-            	return done(err); 
+            	return done(err);
             }
 
             if (!client) { 
-            	return done(null, false); 
+            	return done(null, false);
             }
 
             if (client.clientSecret !== password) { 
-            	return done(null, false); 
+            	return done(null, false);
             }
 
             return done(null, client);
@@ -36,15 +36,15 @@ passport.use(new ClientPasswordStrategy(
     function(clientId, clientSecret, done) {
         Client.findOne({ clientId: clientId }, function(err, client) {
             if (err) { 
-            	return done(err); 
+            	return done(err);
             }
 
             if (!client) { 
-            	return done(null, false); 
+            	return done(null, false);
             }
 
             if (client.clientSecret !== clientSecret) { 
-            	return done(null, false); 
+            	return done(null, false);
             }
 
             return done(null, client);

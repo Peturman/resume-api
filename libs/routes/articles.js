@@ -9,7 +9,6 @@ var db = require(libs + 'db/mongoose');
 var Article = require(libs + 'model/article');
 
 router.get('/', function(req, res) {
-	
 	Article.find(function (err, articles) {
 		if (!err) {
 			return res.json(articles);
@@ -32,7 +31,9 @@ router.post('/', passport.authenticate('bearer', { session: false }), function(r
 		author: req.body.author,
 		description: req.body.description,
         content: req.body.content,
-		images: req.body.images
+		images: req.body.images,
+		tags: req.body.tags,
+        sort: req.body.sort
 	});
 
 	article.save(function (err) {

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
 	crypto = require('crypto'),
+	moment = require('moment');
 
 	Schema = mongoose.Schema,
 
@@ -18,8 +19,8 @@ var mongoose = require('mongoose'),
 			required: true
 		},
 		created: {
-			type: Date,
-			default: Date.now
+			type: String,
+			default: moment().format('YYYY-MM-DD HH:mm:ss')
 		}
 	});
 

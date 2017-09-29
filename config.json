@@ -11,8 +11,8 @@
             "version" : "v1"
         },
         "user": {
-            "username": "myapi",
-            "password": "abc1234"
+            "username": "peturman",
+            "password": "123456"
         },
         "client": {
             "name": "Android API v1",
